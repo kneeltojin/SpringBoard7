@@ -181,7 +181,7 @@
     <!-- FastClick -->
     <script src='${pageContext.request.contextPath }/resources/plugins/fastclick/fastclick.min.js'></script>
     <!-- AdminLTE App -->
-    <script src="${pageContext.request.contextPath }/resources/dist/js/app.min.js" type="text/javascript"></script>
+    <script src="${pageContsssext.request.contextPath }/resources/dist/js/app.min.js" type="text/javascript"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="${pageContext.request.contextPath }/resources/dist/js/demo.js" type="text/javascript"></script>
   </body>

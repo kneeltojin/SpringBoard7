@@ -5,6 +5,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.itwillbs.domain.BoardVO;
 
 // @RequestMapping(value ="/board/*")
 // => 실행하는 주소가  /board/~ 시작하는 모든 주소를
@@ -28,6 +31,23 @@ public class BoardController {
 		logger.info(" /views/board/regist.jsp 페이지 이동 ");
 	}
 	// 글쓰기 (정보 처리) / POST
+	@RequestMapping(value="/regist",method = RequestMethod.POST)
+	public String boardRegistPOST(/* @ModelAttribute */ BoardVO vo) {
+		logger.info(" boardRegistPOST() 실행 ");
+		
+		// 글쓰기 동작을 처리
+		
+		// 한글처리 인코딩 => web.xml 필터설정
+		// 1) 전달정보(파라메터)를 저장 / 제목,내용,이름
+		logger.info(" vo : {}",vo);
+		
+		// 2) 서비스기능 -> DAO기능 -> DB에 저장
+		
+		// 3) 페이지 이동(게시판 리스트)
+		
+		
+		return "";
+	}
 	
 	
 } // BoardController
