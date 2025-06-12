@@ -32,7 +32,9 @@ public class BoardServiceImpl implements BoardService{
 	// alt shift s + v 오버라이딩 메서드 구현
 	@Override
 	public void boardRegist(BoardVO vo) throws Exception {
-		// TODO Auto-generated method stub
+		// DAO에 글쓰기 기능을 호출
+		bDao.boardInsert(vo);
+		logger.info("글쓰기 서비스 기능 완료");
 		
 	}
 
