@@ -8,7 +8,6 @@
 	<h1>/board/listALL.jsp</h1>
 	
 <%-- ${boardList } --%>
-	
 	<div class="box">
             <div class="box-header with-border">
               <h3 class="box-title">Bordered Table</h3>
@@ -51,5 +50,30 @@
           </div>
 	
 	</div>
+	
+	
+	<script>
+		// jsp(java) -> JSTL/EL -> HTML -> JavaScript 순서 실행
+		
+		// el표현식의 값을 사용가능한가? yes		
+		// 사용자가 글쓰기를 한경우 '글쓰기 완료!'' 메시지(alert) 출력
+		// alert("${result }");
+		var result = "${result}";
+		
+		if(result == "createOK"){
+			alert("글쓰기 완료! ");
+		}
+		
+	
+	
+	</script>
+	
+	
+	
+	
+	
+	
+	
+	
 <%@ include file="../include/footer.jsp" %>
 
