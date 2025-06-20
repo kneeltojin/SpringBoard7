@@ -95,7 +95,7 @@ public class BoardController {
 		logger.info(" bno : {}", bno);
 		
 		// 서비스 -> DAO 특정 글의 조회수를 1증가
-		
+		bService.increaseViewcnt(bno);
 		
 		// 특정 글정보(bno)를 DB에서 가져와서 view 페이지에 출력
 		// 서비스 -> DAO 특정 글정보 가져오기
