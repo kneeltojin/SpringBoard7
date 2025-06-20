@@ -66,6 +66,13 @@ public class BoardDAOImpl implements BoardDAO {
 		
 		return resultVO;
 	}
+
+	@Override
+	public void viewcntUpate(int bno) throws Exception {
+		logger.info(" viewcntUpate(int bno) 실행 ");
+		sqlSession.update(NAMESPACE + "increaseViewcnt",bno); // boardDAO의 increadViewcnt 호출?
+	}
+	
 	
 	
 	

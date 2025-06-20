@@ -68,11 +68,19 @@ public class BoardDAOTest {
 		
 	}
 	
-	@Test
+	//@Test
 	public void 게시판본문보기_테스트() throws Exception{
 		logger.info(" 게시판본문보기_테스트() 실행 ");
 		int bno = 10;
 		bDAo.boardSelect(bno);
+	}
+	
+	//@Test
+	public void 조회수1증가_테스트() throws Exception {
+		int bno = 1;
+		bDAo.viewcntUpate(bno);
+		logger.info(" 조회수1증가_테스트() 실행 ");
+		
 	}
 	
 }
