@@ -7,6 +7,7 @@
       -->
 	<%@include file="../include/header.jsp" %>
 	
+<%-- 	${updateCheck }	 --%>
 	<div class='content'>
 	<h1>/board/read.jsp</h1>
 

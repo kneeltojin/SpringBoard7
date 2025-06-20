@@ -8,6 +8,7 @@
 	<h1>/board/listALL.jsp</h1>
 	
 <%-- ${boardList } --%>
+<%-- 	${updateCheck } --%>
 	<div class="box">
             <div class="box-header with-border">
               <h3 class="box-title">Bordered Table</h3>
