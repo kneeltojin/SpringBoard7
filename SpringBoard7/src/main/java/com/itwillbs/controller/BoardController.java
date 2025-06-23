@@ -147,14 +147,15 @@ public class BoardController {
 	
 	// 게시판 수정하기 POST
 	@RequestMapping(value = "modify", method = RequestMethod.POST)
-	public String boardModifyPOST(BoardVO vo) throws Exception{
+	public String boardModifyPOST(BoardVO vo, 
+			RedirectAttributes rttr) throws Exception{
 		logger.info(" boardModifyPOST() 실행 ");
 		
 		// 수정할 정보(전달된 데이터, 파라메터) 저장
 		logger.info(" vo : {}",vo);		
 		
 		// 서비스 -> DB에 정보 호출
-		//bService.boardRegist(vo);
+		bService.modifyBoard(vo);
 		
 		// 페이지 이동
 		//rttr.addFlashAttribute("result", "modifyOK");
