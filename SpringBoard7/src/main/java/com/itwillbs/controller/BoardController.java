@@ -156,11 +156,15 @@ public class BoardController {
 		
 		// 서비스 -> DB에 정보 호출
 		bService.modifyBoard(vo);
+		logger.info(" 게시판 글 수정 완료! ");
 		
-		// 페이지 이동
-		//rttr.addFlashAttribute("result", "modifyOK");
+		// 리스트에 수정 완료 했다는 정보를 전달해서
+		// 화면에 alert 출력
+		rttr.addFlashAttribute("result", "modifyOK");
 		
-		return "";
+		// 페이지 이동 (리스트)
+		
+		return "redirect:/board/listALL";
 	}
 		
 	
