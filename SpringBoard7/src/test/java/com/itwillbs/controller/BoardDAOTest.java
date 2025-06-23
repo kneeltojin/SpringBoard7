@@ -83,4 +83,15 @@ public class BoardDAOTest {
 		
 	}
 	
+	@Test
+	public void 수정테스트() throws Exception{
+		BoardVO vo = new BoardVO();
+		vo.setBno(3);
+		vo.setTitle("수정된 제목");
+		vo.setContent("수정된 내용");
+		vo.setWriter("수정된 작성자");
+		bDAo.boardUpdate(vo);
+		logger.info(" 게시판 글 수정테스트() 실행");
+	}
+	
 }

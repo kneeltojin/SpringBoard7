@@ -23,11 +23,12 @@
             
             
             <!-- submit 버튼 클릭시 정보 전달하기 위한 폼태그 -->
- 			<form role="form">
- 			              <div class="box-body">
+ 			<form role="form" action="" method="post">
+ 			
+ 			  <div class="box-body">
                   <div class="form-group">
                   <label for="exampleInputEmail1">번  호</label>
-				  <input type="text" name="title" class="form-control" 
+				  <input type="text" name="bno" class="form-control" 
                   		 id="exampleInputEmail1" value="${boardVO.bno }" readonly>
                 </div>
               
@@ -39,13 +40,13 @@
                 
                 <div class="form-group">
                   <label for="exampleInputEmail1">작성자</label>
-				  <input type="text" name="title" class="form-control" 
+				  <input type="text" name="writer" class="form-control" 
                   		 id="exampleInputEmail1" value="${boardVO.writer}">
                 </div>
                 
                 <div class="form-group">
                   <label>내  용</label>
-				  <input type="text" name="title" class="form-control" 
+				  <input type="text" name="content" class="form-control" 
                   		 id="exampleInputEmail1" value="${boardVO.content}">
                 </div>
                                
