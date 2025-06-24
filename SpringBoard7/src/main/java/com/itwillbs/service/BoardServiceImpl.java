@@ -73,6 +73,14 @@ public class BoardServiceImpl implements BoardService{
 		logger.info(" 게시판 수정 완료 ");
 		
 	}
+
+	@Override
+	public int removeBoard(int bno) throws Exception {
+		logger.info(" removeBoard(int bno) 실행 ");
+		return bDao.boardDelete(bno);		
+	}
+	
+	
 	
 	
 	

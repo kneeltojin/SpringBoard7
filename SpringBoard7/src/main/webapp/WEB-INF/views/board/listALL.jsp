@@ -66,9 +66,13 @@
 		if(result == "createOK"){
 			alert("글쓰기 완료! ");
 		}
-		else if (result == "modifyOK"){
+		if(result == "modifyOK"){
 			alert("글 수정 완료! ");
 		}
+		if(result == "deleteOK"){
+			alert("글 삭제 완료! ");
+		}
+		
 		
 	
 	

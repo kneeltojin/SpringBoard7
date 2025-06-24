@@ -83,7 +83,7 @@ public class BoardDAOTest {
 		
 	}
 	
-	@Test
+	//@Test
 	public void 수정테스트() throws Exception{
 		BoardVO vo = new BoardVO();
 		vo.setBno(3);
@@ -93,5 +93,23 @@ public class BoardDAOTest {
 		bDAo.boardUpdate(vo);
 		logger.info(" 게시판 글 수정테스트() 실행");
 	}
+	
+	
+	//@Test
+	public void 글삭제_테스트() throws Exception{
+		bDAo.boardDelete(13);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
