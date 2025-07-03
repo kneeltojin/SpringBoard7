@@ -68,13 +68,13 @@ public class BoardController {
 		//model.addAttribute("data","1234");
 		// => 두개의 동작이 동일함 (주소줄로 전달, 계속해서 정보가 남아있음)
 		
-		return "redirect:/board/listALL";
+		return "redirect:/board/listCri";
 
 	}
 	
-	// http://localhost:8088/board/listALL
+	// http://localhost:8088/board/listCri
 	// 게시판 리스트 (ALL)
-	@RequestMapping(value = "/listALL", method = RequestMethod.GET)
+	//@RequestMapping(value = "/listALL", method = RequestMethod.GET)
 	public void boardListALLGET(Model model,HttpSession session) throws Exception {
 		logger.info("boardListAllGET() 실행");
 		
@@ -87,7 +87,7 @@ public class BoardController {
 		// 컨트롤러 -> 뷰페이지로 전달 (Model)
 		model.addAttribute("boardList", boardList);
 		
-		logger.info(" /views/board/listALL.jsp 페이지 연결");
+		logger.info(" /views/board/listCri.jsp 페이지 연결");
 	}
 	
 	// http://localhost:8088/board/listCri 기본값 호출(1,10)
@@ -115,7 +115,7 @@ public class BoardController {
 		// 컨트롤러 -> 뷰페이지로 전달 (Model)
 		model.addAttribute("boardList", boardList);
 		
-		logger.info(" /views/board/listALL.jsp 페이지 연결");
+		logger.info(" /views/board/listCri.jsp 페이지 연결");
 	}
 	
 	// http://localhost:8088/board/read?bno=11
@@ -193,7 +193,7 @@ public class BoardController {
 		
 		// 페이지 이동 (리스트)
 		
-		return "redirect:/board/listALL";
+		return "redirect:/board/listCri";
 	}
 	
 	//http://localhost:8088/board/remove (POST)
@@ -212,7 +212,7 @@ public class BoardController {
 		rttr.addFlashAttribute("result","deleteOK");
 		// 리스트 페이지로 이동
 		
-		return "redirect:/board/listALL";
+		return "redirect:/board/listCri";
 	}
 
 	
