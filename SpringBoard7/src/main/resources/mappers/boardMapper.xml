@@ -61,6 +61,12 @@
  		limit #{pageStart},#{pageSize}
  	</select>
  	
+ 	<!-- 게시글 글 개수 조회 -->
+ 	<select id ="selectTotalCount"
+ 			resultType= "int"> 
+ 			<!-- null값이 있을수 있는 bno인 경우 int대신 java.lang.Integer 보통 사용  -->
+ 		select count(bno) from tbl_board
+ 	</select>
  	
  
   

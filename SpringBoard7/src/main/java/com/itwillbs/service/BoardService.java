@@ -32,5 +32,8 @@ public interface BoardService {
 	// 게시판 글 삭제하기
 	public int removeBoard(int bno) throws Exception;
 
+	// 게시판 글 갯수 카운트
+	public int getTotalCount() throws Exception;
+
 }
 

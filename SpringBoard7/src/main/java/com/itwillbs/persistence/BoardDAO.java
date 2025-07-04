@@ -36,6 +36,9 @@ public interface BoardDAO {
 	// 게시판 글 삭제
 	public int boardDelete(int bno) throws Exception;
 	
+	// 게시판 글 개수 조회
+	public int totalCountSelect() throws Exception;
+	
 	
 	
 }

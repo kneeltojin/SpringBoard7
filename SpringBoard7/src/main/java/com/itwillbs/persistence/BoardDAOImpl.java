@@ -128,6 +128,19 @@ public class BoardDAOImpl implements BoardDAO {
 		// #{pageStart},#{pageSize} 매개변수 필요
 		return sqlSession.selectList(NAMESPACE+"listCri",cri);
 	}
+
+	@Override
+	public int totalCountSelect() throws Exception {
+		logger.info("totalCountSelect() 호출");
+		
+		int cnt = sqlSession.selectOne(NAMESPACE+"selectTotalCount");
+		
+		return cnt;
+		
+		// return sqlSession.selectOne(NAMESPACE+"selectTotalCount");
+	}
+	
+	
 	
 	
 	

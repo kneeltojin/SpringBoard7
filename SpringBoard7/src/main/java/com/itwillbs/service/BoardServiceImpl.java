@@ -86,6 +86,13 @@ public class BoardServiceImpl implements BoardService{
 		logger.info(" boardListCri(Criteria cri) 실행");
 		return bDao.boardListCriSelect(cri);
 	}
+
+	@Override
+	public int getTotalCount() throws Exception {
+		logger.info(" getTotalCount() 실행 ");
+		
+		return bDao.totalCountSelect();
+	}
 	
 	
 	

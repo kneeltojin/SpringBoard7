@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.itwillbs.domain.BoardVO;
 import com.itwillbs.domain.Criteria;
+import com.itwillbs.domain.PageVO;
 import com.itwillbs.service.BoardService;
 
 // @RequestMapping(value ="/board/*")
@@ -115,7 +116,22 @@ public class BoardController {
 		// 컨트롤러 -> 뷰페이지로 전달 (Model)
 		model.addAttribute("boardList", boardList);
 		
-		logger.info(" /views/board/listCri.jsp 페이지 연결");
+		// 페이징블럭(페이지 하단블럭) 정보저장하는 객체
+		PageVO pageVO = new PageVO();
+		pageVO.setCri(cri); // page, pageSzie
+		
+		// 서비스 기능 -> 저장된 글의 개수를 가져오는 기능
+		// 서비스 만들고 dao만들고 매퍼에 쿼리만들어서 연결해서 여기 넣는다
+		pageVO.setTotalCount(bService.getTotalCount());
+		
+//		int cnt = bService.getTotalCount();
+//		pageVO.setTotalCount();
+		
+		logger.info("pageVO : " +pageVO);
+		model.addAttribute("pageVO", pageVO);
+		
+		
+		logger.info(" /views/board/listALL.jsp 페이지 연결");
 	}
 	
 	// http://localhost:8088/board/read?bno=11
@@ -124,10 +140,12 @@ public class BoardController {
 	@GetMapping(value="/read")
 	public void boardReadGET(@RequestParam("bno") int bno,
 							Model model,
-							HttpSession session) throws Exception{
+							@ModelAttribute("cri") Criteria cri,
+	 						HttpSession session) throws Exception{
 		logger.info(" boardReadGET() 실행 ");
 	
 		logger.info(" bno : {}", bno);
+		logger.info(" cri : {}", cri);
 		boolean updateCheck = (boolean)session.getAttribute("updateCheck");
 		
 		if(updateCheck) {
@@ -158,6 +176,7 @@ public class BoardController {
 	// 게시판 수정하기 GET
 	@RequestMapping(value = "/modify",method = RequestMethod.GET)
 	public void boardModifyGET(@ModelAttribute("bno") int bno,
+			@ModelAttribute("cri") Criteria cri,
 			Model model) throws Exception {
 		logger.info(" boardModifyGET() 실행 ");
 		// 전달된 정보(파라메터)를 저장
@@ -176,7 +195,8 @@ public class BoardController {
 	
 	// 게시판 수정하기 POST
 	@RequestMapping(value = "modify", method = RequestMethod.POST)
-	public String boardModifyPOST(BoardVO vo, 
+	public String boardModifyPOST(BoardVO vo,
+								@ModelAttribute("cri") Criteria cri,
 			RedirectAttributes rttr) throws Exception{
 		logger.info(" boardModifyPOST() 실행 ");
 		
@@ -193,13 +213,14 @@ public class BoardController {
 		
 		// 페이지 이동 (리스트)
 		
-		return "redirect:/board/listCri";
+		return "redirect:/board/listCri?page="+cri.getPage()+"&pageSize="+cri.getPageSize();
 	}
 	
 	//http://localhost:8088/board/remove (POST)
 	// 게시판  글삭제
 	@RequestMapping(value = "/remove", method = RequestMethod.POST)
 	public String boardRemovePOST(/* @ModelAttribute */ int bno,
+								 @ModelAttribute("cri") Criteria cri,
 								  RedirectAttributes rttr) throws Exception{
 		logger.info(" boardRemovePOST() 실행 ! ");
 		
@@ -212,7 +233,7 @@ public class BoardController {
 		rttr.addFlashAttribute("result","deleteOK");
 		// 리스트 페이지로 이동
 		
-		return "redirect:/board/listCri";
+		return "redirect:/board/listCri?page="+cri.getPage()+"&pageSize="+cri.getPageSize();
 	}
 
 	

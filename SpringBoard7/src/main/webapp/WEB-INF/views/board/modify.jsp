@@ -25,6 +25,9 @@
             <!-- submit 버튼 클릭시 정보 전달하기 위한 폼태그 -->
  			<form role="form" action="" method="post">
  			
+ 				<input type="hidden" name="page" value="${cri.page}">
+            	<input type="hidden" name="pageSize" value="${cri.pageSize}">
+ 			
  			  <div class="box-body">
                   <div class="form-group">
                   <label for="exampleInputEmail1">번  호</label>
