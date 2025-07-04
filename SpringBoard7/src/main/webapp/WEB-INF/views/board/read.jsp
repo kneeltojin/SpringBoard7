@@ -19,10 +19,13 @@
             </div>
             <!-- /.box-header -->
             <!-- 제목, 작성자, 내용을 입력받는 폼태그 생성 -->
+            
             <!-- form start -->
             <!-- submit 버튼 클릭시 정보 전달하기 위한 폼태그 -->
             <form role="form"> <!-- action, method 속성 생략 -->
             	<input type="hidden" name="bno" value="${boardVO.bno}">
+            	<input type="hidden" name="page" value="${cri.page}">
+            	<input type="hidden" name="pageSize" value="${cri.pageSize}">
             </form>
             <!-- action="/board/regist" 생략가능
             	 생략시 자기자신의 주소를 호출
@@ -87,9 +90,9 @@
 			// => 문서가 준비된 경우 실행하는 동작
 			// => 작성되는 코드 jquery
 			$(".btn-danger").click(function(){
-				alert(" 게시판 목록으로 이동합니다! ");
+				//alert(" 게시판 목록으로 이동합니다! ");
 				// 게시판 목록으로 이동
-				location.href="/board/listALL";
+				location.href="/board/listCri?page=${cri.page}&pageSize=${cri.pageSize}";
 			}); // click
 			
 			var form = $("form[role='form']");

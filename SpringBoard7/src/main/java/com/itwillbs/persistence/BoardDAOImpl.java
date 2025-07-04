@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.BoardVO;
+import com.itwillbs.domain.Criteria;
 
 /**
  * 		BoardDAOImpl: BoardDAO 인터페이스를 구현한 객체
@@ -94,6 +95,53 @@ public class BoardDAOImpl implements BoardDAO {
 		return sqlSession.delete(NAMESPACE+"deleteBoard", bno);
 	}
 	// 게시판 글 삭제하기
+
+	
+	@Override
+	public List<BoardVO> boardListPageSelect(int page) throws Exception {
+		logger.info(" boardListPageSelect() 호출 ");
+		
+		// 전달받은 페이지 정보를 조회할때 사용할 인덱스로 전환
+		// 1페이지 -> index : 0
+		// 2페이지 -> index : 10
+		// 3페이지 -> index : 20
+		if(page <= 0) {
+			page = 1;
+		}
+		
+		page = (page - 1) * 10;
+		
+		return sqlSession.selectList(NAMESPACE+"listPage",page);
+	}
+
+	
+	@Override
+	public List<BoardVO> boardListCriSelect(Criteria cri) throws Exception {
+		logger.info(" boardListCriSelect(Criteria cri) 호출 ");
+
+		// 전달받은 페이지 정보를 조회할때 사용할 인덱스로 전환
+		// 1페이지 -> index : 0
+		// 2페이지 -> index : 10
+		// 3페이지 -> index : 20
+
+		
+		// #{pageStart},#{pageSize} 매개변수 필요
+		return sqlSession.selectList(NAMESPACE+"listCri",cri);
+	}
+
+	@Override
+	public int totalCountSelect() throws Exception {
+		logger.info("totalCountSelect() 호출");
+		
+		int cnt = sqlSession.selectOne(NAMESPACE+"selectTotalCount");
+		
+		return cnt;
+		
+		// return sqlSession.selectOne(NAMESPACE+"selectTotalCount");
+	}
+	
+	
+	
 	
 	
 	

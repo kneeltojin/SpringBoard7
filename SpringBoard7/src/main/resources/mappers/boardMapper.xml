@@ -45,5 +45,29 @@
  		where bno = #{bno}
  	</delete>
  
+  	<!-- 게시판 리스트(page) -->
+ 	<select id ="listPage" 
+ 			resultType="com.itwillbs.domain.BoardVO">
+ 		select * from tbl_board
+ 		order by bno desc
+ 		limit #{page},#{pageSize}
+ 	</select>
+ 	
+ 	<!-- 게시판 리스트(cri) -->
+ 	<select id ="listCri" 
+ 			resultType="com.itwillbs.domain.BoardVO">
+ 		select * from tbl_board
+ 		order by bno desc
+ 		limit #{pageStart},#{pageSize}
+ 	</select>
+ 	
+ 	<!-- 게시글 글 개수 조회 -->
+ 	<select id ="selectTotalCount"
+ 			resultType= "int"> 
+ 			<!-- null값이 있을수 있는 bno인 경우 int대신 java.lang.Integer 보통 사용  -->
+ 		select count(bno) from tbl_board
+ 	</select>
+ 	
+ 
   
   </mapper>
